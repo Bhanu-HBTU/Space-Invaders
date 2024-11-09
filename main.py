@@ -29,7 +29,7 @@ PLAYER_BULLET_IMG = pygame.image.load("assets/pixel_laser_yellow.png").convert_a
 
 ENEMY_IMG = pygame.image.load("assets/pixel_ship_red_small.png").convert_alpha()
 ENEMY_BULLET_IMG = pygame.image.load("assets/pixel_laser_red.png").convert_alpha()
-
+ENEMY_BULLET_IMG = pygame.transform.scale(ENEMY_BULLET_IMG, (70,80))
 
 # Loading Sounds
 SHOOT_SOUND = pygame.mixer.Sound("assets/laser.wav")
@@ -119,7 +119,7 @@ class Enemy:
 
     def shoot(self):
         bullet_x = self.x + self.img.get_width() / 2 - ENEMY_BULLET_IMG.get_width() / 2
-        bullet_y = self.y + self.img.get_height()
+        bullet_y = self.y
         new_bullet = Laser(ENEMY_BULLET_IMG, bullet_x, bullet_y, vel=7)
         self.bullets.append(new_bullet)
 
