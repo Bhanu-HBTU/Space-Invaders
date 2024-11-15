@@ -209,7 +209,8 @@ def main():
             for enemy in enemies[:]:
                 if bullet.collision(enemy):
                     score += 10 # Increase the score
-                    player.bullets.remove(bullet)
+                    if bullet in player.bullets:
+                        player.bullets.remove(bullet)
                     enemies.remove(enemy)
                     enemies.append(spawn_enemy())  # Respawn new enemy
                     break
